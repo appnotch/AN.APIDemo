@@ -1,6 +1,7 @@
 ﻿using AN.APIDemo.Infrastructure;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -110,6 +111,7 @@ namespace AN.APIDemo.API
         /// <param name="param">Optional API parameter.</param>
         private string Execute(string url, HttpMethod httpMethod, object param = null)
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11;
             var requestUrl = Configuration.APIUrl + url;
 
             // Create a new instance of an HttpClient object.
