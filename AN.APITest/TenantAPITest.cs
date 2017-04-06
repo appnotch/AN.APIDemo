@@ -114,17 +114,14 @@ namespace AN.APITest
 
             var updatedTenant = _tenantApi.Update(TenantTestData.APP_ID, newTenant.Id, tenantEditor);
 
-            if (updatedTenant != null)
-            {
-                Assert.IsTrue(updatedTenant.Description == updatedDescription);
-                Assert.IsTrue(updatedTenant.DisplayName == updatedDisplayName);
-            }
-            else
-            {
-                // delete when update fails
-                _tenantApi.DeleteTenant(TenantTestData.APP_ID, newTenant.Id);
-                // Assert.IsNull(_tenantApi.GetTenant(TenantTestData.APP_ID, newTenant.Id));
-            }
+            Assert.IsTrue(updatedTenant.Description == updatedDescription);
+            Assert.IsTrue(updatedTenant.DisplayName == updatedDisplayName);
+
+            _tenantApi.DeleteTenant(TenantTestData.APP_ID, updatedTenant.Id);
+
+            var deletedApp = _tenantApi.GetTenant(TenantTestData.APP_ID, updatedTenant.Id);
+
+            Assert.IsNull(deletedApp);
         }
     }
 }
