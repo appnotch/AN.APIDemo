@@ -17,8 +17,8 @@ How to use the TenantAPI?
 
 Simple, within the class that will use the API, initialize an instance of the TenantAPI class then call API methods directly from it.
 
-			var tenantApi = new TenantAPI();
-			var tenants = tenantApi.GetActiveTenants(1 /* my app id */);
+	var tenantApi = new TenantAPI();
+	var tenants = tenantApi.GetActiveTenants(1 /* my app id */);
       
 Calling methods within this class will handle creation of JWT tokens (per request) add it into the header for the request and return
 the result is applicable.
