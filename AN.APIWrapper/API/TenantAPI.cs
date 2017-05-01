@@ -1,21 +1,23 @@
-﻿using AN.APIDemo.Models;
-using Newtonsoft.Json;
-using System;
+﻿using AN.APIWrapper.Models;
 using System.Collections.Generic;
 
-namespace AN.APIDemo.API
+namespace AN.APIWrapper.API
 {
-    public class TenantAPI : APIWrapper
+	public class TenantAPI : APIWrapper
     {
+		public TenantAPI(string apiUrl, string subject, string secret) 
+			: base(apiUrl, subject, secret)
+		{
+		}
 
-        #region GET methods
+		#region GET methods
 
-        /// <summary>
-        /// Retrieves full details of all Tenants for an Application, including disabled ones. Returns Not Found if App doesn't exist or is not a Multi-Tenant App.
-        /// </summary>
-        /// <param name="appId">Application Id to fetch tenants for.</param>
-        /// <param name="tag">Optional case sensitive value to filter results on their tag with.</param>
-        public List<Tenant> GetTenants(int appId, string tag = "")
+		/// <summary>
+		/// Retrieves full details of all Tenants for an Application, including disabled ones. Returns Not Found if App doesn't exist or is not a Multi-Tenant App.
+		/// </summary>
+		/// <param name="appId">Application Id to fetch tenants for.</param>
+		/// <param name="tag">Optional case sensitive value to filter results on their tag with.</param>
+		public List<Tenant> GetTenants(int appId, string tag = "")
         {
             var url = string.IsNullOrEmpty(tag)
                 ? $"v2/apps/{appId}/tenants"

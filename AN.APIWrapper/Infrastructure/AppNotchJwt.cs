@@ -1,9 +1,10 @@
-﻿using JWT;
+﻿using AN.APIWrapper.Extensions;
+using JWT;
 using JWT.Algorithms;
 using JWT.Serializers;
 using System;
 
-namespace AN.APIDemo
+namespace AN.APIWrapper.Infrastructure
 {
 	/// <summary>
 	/// AppNotch API Jwt wrapper.
@@ -32,7 +33,9 @@ namespace AN.APIDemo
 
 			IJwtAlgorithm algorithm = new HMACSHA256Algorithm();
 			IJsonSerializer serializer = new JsonNetSerializer();
-			IJwtEncoder encoder = new JwtEncoder(algorithm, serializer);
+			IBase64UrlEncoder urlEncoder = new JwtBase64UrlEncoder();
+
+			IJwtEncoder encoder = new JwtEncoder(algorithm, serializer, urlEncoder);
 
 			// convert the secret to base64 string and use as key
 			var base64Secret = Convert.FromBase64String(_secret);

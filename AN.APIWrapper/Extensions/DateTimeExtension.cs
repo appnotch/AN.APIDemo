@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AN.APIDemo
+namespace AN.APIWrapper.Extensions
 {
 	public static class DateTimeExtension
 	{

@@ -1,4 +1,4 @@
-﻿namespace AN.APIDemo.Models
+﻿namespace AN.APIWrapper.Models
 {
 	public class Tenant
 	{

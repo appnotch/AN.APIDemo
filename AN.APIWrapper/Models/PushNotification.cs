@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AN.APIDemo.Models
+namespace AN.APIWrapper.Models
 {
 	public class PushNotification
 	{

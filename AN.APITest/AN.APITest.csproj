@@ -40,6 +40,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -59,15 +60,17 @@
     <Compile Include="TenantTestData.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AN.APIDemo\AN.APIDemo.csproj">
-      <Project>{0d34809b-66d0-4700-a33f-5ead0414dce5}</Project>
-      <Name>AN.APIDemo</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="API.config" />
+    <None Include="API.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AN.APIWrapper\AN.APIWrapper.csproj">
+      <Project>{6b7628d0-dac5-4952-b64d-ac850c1443e1}</Project>
+      <Name>AN.APIWrapper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

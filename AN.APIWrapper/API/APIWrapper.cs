@@ -1,16 +1,25 @@
-﻿using AN.APIDemo.Infrastructure;
+﻿using AN.APIWrapper.Infrastructure;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AN.APIDemo.API
+namespace AN.APIWrapper.API
 {
-    public abstract class APIWrapper
+	public abstract class APIWrapper
     {
+		private string _apiBaseUrl;
+		private string _subject;
+		private string _secret;
+		
+		public APIWrapper(string apiUrl, string subject, string secret)
+		{
+			_apiBaseUrl = apiUrl;
+			_subject = subject;
+			_secret = secret;
+		}
 
         #region Http GET
 
@@ -112,13 +121,13 @@ namespace AN.APIDemo.API
         private string Execute(string url, HttpMethod httpMethod, object param = null)
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11;
-            var requestUrl = Configuration.APIUrl + url;
+            var requestUrl = _apiBaseUrl + url;
 
             // Create a new instance of an HttpClient object.
             var client = new HttpClient();
 
             // Add the authentication header using the token we've generated from the AppNotchJwt class
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", GetToken());
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", GetToken(_subject, _secret));
 
             // Create a request message.
             var request = new HttpRequestMessage(httpMethod, requestUrl);
@@ -161,16 +170,10 @@ namespace AN.APIDemo.API
         /// <summary>
         /// Creates a new token.
         /// </summary>
-        private string GetToken()
+        private string GetToken(string subject, string secret)
         {
-            // AppNotch secret
-            var secret = Configuration.ANSecret;
-            var subject = Configuration.ANSubject;
-
             var jwt = new AppNotchJwt(subject, secret);
-            var token = jwt.GetToken();
-
-            return token;
+			return jwt.GetToken();
         }
 
         #endregion

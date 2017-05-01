@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AN.APIDemo.Models
+namespace AN.APIWrapper.Models
 {
 	public class TenantEditor
 	{

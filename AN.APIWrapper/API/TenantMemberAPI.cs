@@ -1,9 +1,14 @@
-﻿using AN.APIDemo.Models;
+﻿using AN.APIWrapper.Models;
 
-namespace AN.APIDemo.API
+namespace AN.APIWrapper.API
 {
 	public class TenantMemberAPI : APIWrapper
 	{
+		public TenantMemberAPI(string apiUrl, string subject, string secret) 
+			: base(apiUrl, subject, secret)
+		{
+		}
+
 		#region GET
 
 		/// <summary>
@@ -31,6 +36,11 @@ namespace AN.APIDemo.API
 
 			return result;
 		}
+
+		#endregion
+
+		#region POST
+
 
 		/// <summary>
 		/// Create a new tenant member.
