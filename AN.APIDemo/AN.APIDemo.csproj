@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="API\APIWrapper.cs" />
     <Compile Include="API\TenantAPI.cs" />
+    <Compile Include="API\TenantMemberAPI.cs" />
     <Compile Include="AppNotchJwt.cs" />
     <Compile Include="Extensions\DateTimeExtension.cs" />
     <Compile Include="Infrastructure\Configuration.cs" />
