@@ -17,7 +17,7 @@ A couple you need to know aside from C# programming knowelge and the .NET framew
 
 How to use the TenantAPI?
 ========================================================
-Simple, within the class that will use the API, initialize an instance of the TenantAPI class then call API methods directly from it.
+Within the class that will use the API, initialize an instance of the TenantAPI class then call API methods directly from it.
 
 	var tenantApi = new TenantAPI();
 	var tenants = tenantApi.GetActiveTenants(1 /* my app id */);
