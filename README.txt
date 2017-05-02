@@ -17,20 +17,17 @@ A couple you need to know aside from C# programming knowelge and the .NET framew
 
 How to use the TenantAPI?
 ========================================================
-1. Acquire API username and secret from AppNotch website.
-
-2. Add the following to your AppSettings.Config
-<appSettings>
-	<add key="AN-Subject" value="api user"/>
-	<add key="AN-Secret" value="secret"/>
-	<add key="AN-APIUrl" value="https://qa.appnotch.com/converter/api/"/>
-</appSettings>
-	
-3. Add reference to the class library project then initialize an instance of the TenantAPI class then call API methods directly from it.
-
+1.) Acquire API username and secret from AppNotch website.
+2.) Add the following to your AppSettings.Config
+	<appSettings>
+		<add key="AN-Subject" value="api user"/>
+		<add key="AN-Secret" value="secret"/>
+		<add key="AN-APIUrl" value="https://qa.appnotch.com/converter/api/"/>
+	</appSettings>	
+3.) Add reference to the class library project then initialize an instance of the TenantAPI class then call API methods directly from it.
 	var tenantApi = new TenantAPI();
 	var tenants = tenantApi.GetActiveTenants(1 /* my app id */);
-      
-Calling methods within this class will handle creation of JWT tokens (per request) add it into the header for the request and return
+	
+4.) Calling methods within this class will handle creation of JWT tokens (per request) add it into the header for the request and return
 the result is applicable.
 
