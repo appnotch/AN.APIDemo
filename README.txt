@@ -8,7 +8,7 @@ What is in the solution?
 2.) AN.APITest : Test project. To be able to run the tests within this project, you need to configure the TenantTestData.cs class found
     within this project.
 
-A couple you need to know aside from C# programming knowelge and the .NET framework
+A couple you need to know aside from C# programming knowlege and the .NET framework
 ========================================================
 1.) This project uses JWT Nuget package. (https://github.com/jwt-dotnet/jwt)
 2.) This project uses Newtonsoft.Json NuGet package to serialize/deserialize the parameters and result from the API calls.
