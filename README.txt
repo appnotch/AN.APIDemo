@@ -3,7 +3,7 @@ This C# .NET solution illustrates how you can interact with the AppNotch Tenant 
 
 What is in the solution?
 ========================================================
-1.) AN.APIDemo : A C# console applciation that contains the wrapper for creating the JWT token and the wrapper that contains the call to
+1.) AN.APIWrapper : A C# class library that contains the wrapper for creating the JWT token and the wrapper to execute
     the tenant API.
 2.) AN.APITest : Test project. To be able to run the tests within this project, you need to configure the TenantTestData.cs class found
     within this project.
