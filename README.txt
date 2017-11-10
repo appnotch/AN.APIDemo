@@ -22,7 +22,7 @@ How to use the TenantAPI?
 	<appSettings>
 		<add key="AN-Subject" value="api user"/>
 		<add key="AN-Secret" value="secret"/>
-		<add key="AN-APIUrl" value="https://qa.appnotch.com/converter/api/"/>
+		<add key="AN-APIUrl" value="https://apiqa.appnotch.com/"/>
 	</appSettings>	
 3.) Add reference to the class library project then initialize an instance of the TenantAPI class then call API methods directly from it.
 	var tenantApi = new TenantAPI();
