@@ -106,7 +106,7 @@ namespace AN.APITest
 				SocialDescription = "My social description.",
 				SplashUrl = "https://appnotch.com",
 				SupportEmail = "test@appnotch.com",
-				SupportSite = "https://appnotch.com/converter/api",
+				SupportSite = "https://api.appnotch.com",
 				Tag = "test_tenant",
 				Url = "https://appnotch.com"
 			};
